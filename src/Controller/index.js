@@ -1,4 +1,6 @@
 import userModel from "../Model/index.js";
+import { compare, hash } from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const authController = {
 signUp: async (req, res) => {
@@ -19,7 +21,7 @@ signUp: async (req, res) => {
     const user = await userModel.create({
         Name : payload.Name,
         Email : payload.Email,
-        Password : payload.hashPassword
+        Password : hashPassword
     });
     res.json({ message: "User registered successfully" });
 

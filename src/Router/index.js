@@ -3,7 +3,7 @@ import authController from "../Controller/index.js";
 import authenticateMiddleware from "../Middleware/authMiddleware.js";
 
 const authRouter = Router();
-authRouter.post("/signUp", authenticateMiddleware,authController.signUp);
+authRouter.post("/signUp", authController.signUp);
 authRouter.post("/signIn", authController.signIn);
 
 

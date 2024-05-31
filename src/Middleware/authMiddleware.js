@@ -8,7 +8,9 @@ const authenticateMiddleware = async (req, res, next) => {
     //     return res.status(401).json({ message: "UnAuthorized2" });
     // }
     let checkToken = await tokenModel.findOne({
-        where:{ token},
+        where:{
+            token
+        },
     })
     if(!checkToken){
         return res.status(401).json({ message: "UnAuthorized1" });
